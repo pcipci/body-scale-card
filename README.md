@@ -4,6 +4,10 @@ A Home Assistant dashboard card (and dashboard strategy) for smart body scales u
 
 **Status:** version `0.1.0`, first public version. It has been used with one scale integration (`renpho_fitness_scale_ble`, family build) and is not yet tested on other setups. Feedback and issues are welcome.
 
+## Requirements
+
+The card needs a scale integration that offers the two interfaces S (scale) and H (history), see the specification below. Today the only one is a multi-user family fork of [renpho_fitness_scale_ble](https://github.com/ronnnnnnnnnnnnn/renpho-escs20m) (fork not yet published). A proposal to bring the interfaces into the original integration is open as [issue #17](https://github.com/ronnnnnnnnnnnnn/renpho-escs20m/issues/17). Until it is accepted, the card works only with that fork. **It does not work with the unmodified original integration.**
+
 ## It does not know any scale
 
 The card talks to a scale integration only through **two small interfaces with flat records**: **S** (scale: people, heights, open measurements, who weighs next) and **H** (history: entries and lines over time). What a source does not offer (its `capabilities`), the card leaves out. Specification (German): [`docs/SPEZIFIKATION_Schnittstellen_Waage_Verlauf.md`](docs/SPEZIFIKATION_Schnittstellen_Waage_Verlauf.md); formal definition, checkers and in-memory test doubles: `interface/`. Today one integration serves both through Home Assistant services and the attributes of its directory entity; a database program or an HTTP adapter can serve H later without changing the card.
