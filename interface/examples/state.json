@@ -1,0 +1,88 @@
+{
+  "scale": {
+    "scale_interface": 1,
+    "capabilities": "next_user,pending,guest,set_entry,set_height",
+    "revision": 11,
+    "name": "Fake scale"
+  },
+  "people": [
+    {
+      "person_id": "jane",
+      "name": "Jane",
+      "birthdate": "1987-03-02",
+      "sex": "female",
+      "method": "standard",
+      "athlete": false,
+      "private": false
+    },
+    {
+      "person_id": "tom",
+      "name": "Tom",
+      "birthdate": "2015-06-20",
+      "sex": "male",
+      "method": "standard",
+      "athlete": false,
+      "private": false
+    }
+  ],
+  "heights": [
+    {
+      "person_id": "jane",
+      "at": "2025-04-02T07:00:00Z",
+      "cm": 168.5
+    },
+    {
+      "person_id": "tom",
+      "at": "2026-05-01T07:00:00Z",
+      "cm": 140.0
+    }
+  ],
+  "pending": [
+    {
+      "measurement_id": "m1",
+      "at": "2026-11-08T06:45:00Z",
+      "weight": 71.2,
+      "impedance": 498
+    }
+  ],
+  "pending_candidates": [
+    {
+      "measurement_id": "m1",
+      "person_id": "jane",
+      "suggested": true
+    },
+    {
+      "measurement_id": "m1",
+      "person_id": "tom",
+      "suggested": false
+    }
+  ],
+  "guest": null,
+  "next": {
+    "selected": "auto",
+    "valid_until": null,
+    "auto_selected_at": null
+  },
+  "next_choices": [
+    {
+      "choice_id": "auto",
+      "kind": "auto",
+      "label": "Automatic"
+    },
+    {
+      "choice_id": "guest",
+      "kind": "guest",
+      "label": "Guest"
+    },
+    {
+      "choice_id": "jane",
+      "kind": "person",
+      "label": "Jane"
+    },
+    {
+      "choice_id": "tom",
+      "kind": "person",
+      "label": "Tom"
+    }
+  ]
+}

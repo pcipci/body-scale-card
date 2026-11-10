@@ -1,0 +1,696 @@
+{
+  "_meta": {
+    "language": "Deutsch",
+    "machine_translated": false
+  },
+  "ui": {
+    "title": "Waage",
+    "overview": "Waage",
+    "holdOpen": "lange drücken: Ansicht öffnen",
+    "pending": "Offene Messungen",
+    "noPending": "Keine offenen Messungen.",
+    "assignTo": "Zuordnen an",
+    "assign": "Zuordnen",
+    "next": "Als Nächstes wiegt sich",
+    "auto": "Automatisch",
+    "guest": "Gast",
+    "until": "bis {t}",
+    "discard": "Gast / verwerfen",
+    "discardShort": "Verwerfen",
+    "confirmDiscard": "Messung vom {m} verwerfen? Sie wird niemandem zugeordnet und nicht gespeichert.",
+    "guestResult": "Gast",
+    "chartLegendTitle": "Diagramm und Tabelle: Bedienung und Markierungen",
+    "chartLegend": [
+      [
+        "_",
+        "Diagramm bedienen"
+      ],
+      [
+        "views",
+        "Ansicht: Zusammensetzung, BMI, Größe; bei Kindern zusätzlich Gewicht + Perzentile."
+      ],
+      [
+        "comppct",
+        "%: in der Zusammensetzung zwischen kg und Prozent (Gewicht + Fett in Prozent) umschalten."
+      ],
+      [
+        "periods",
+        "Zeitraum: 30 Tage, 1 Jahr, alles. Ohne Filter kommt die Linie aus der Langzeitstatistik über alle Jahre (Tages-, bei „alles“ Wochenmittel)."
+      ],
+      [
+        "fc",
+        "Filter Kleidung: egal, nur ohne oder nur mit Kleidung gewogen. Gilt bei Gewicht, BMI und Zusammensetzung."
+      ],
+      [
+        "fi",
+        "Filter Impedanz: egal, nur mit oder nur ohne Impedanz. Gilt nur bei der Zusammensetzung (Fett, Wasser, Muskeln), denn nur dort braucht es die Impedanz. Gewicht, BMI und Größe hängen nicht davon ab."
+      ],
+      [
+        "fnote",
+        "Mit einem Filter zählen nur die gespeicherten Einzelmessungen (so weit, wie die Integration sie aufbewahrt), nicht die Langzeitstatistik; ein Hinweis unter dem Diagramm nennt den Beginn. Gibt es keine passenden Einträge, bleibt das Diagramm leer. Die Größe hat keine Filter."
+      ],
+      [
+        "grid",
+        "Raster ein/aus."
+      ],
+      [
+        "curves",
+        "Kurven ein/aus. Erwachsene: BMI-Bereiche. Kinder: zwei Knöpfe WHO und DE (Kromeyer-Hauschild), Antippen wählt die Referenz, nochmal Antippen blendet die Kurven aus."
+      ],
+      [
+        "_",
+        "Tabelle unter dem Diagramm (eine Zeile je Messung)"
+      ],
+      [
+        "tshirt",
+        "T-Shirt: mit Kleidung gewogen (gefüllt) oder ohne (Umriss). Antippen schaltet um; die Messung wird dabei noch einmal mit derselben Zeit gespeichert und ersetzt die alte."
+      ],
+      [
+        "move",
+        "Verschieben: gibt die Messung einer anderen Person (deren Profil rechnet die Körperwerte neu), nach Rückfrage."
+      ],
+      [
+        "delete",
+        "Löschen: entfernt die Messung endgültig, nach Rückfrage. Löschen entfernt sie auch aus den Einzelmessungen, nicht aus der Langzeitstatistik der Sensoren."
+      ],
+      [
+        "hight",
+        "Größe: In der Ansicht Größe steht eine eigene Tabelle. Stift = Eintrag korrigieren, Mülleimer = Eintrag löschen, Plus = neue Größe eintragen."
+      ],
+      [
+        "_",
+        "Markierungen"
+      ],
+      [
+        "est",
+        "Blass bzw. gepunktet: geschätzt. Für diese Zeit gibt es keinen gemessenen Wert, es gilt der letzte bzw. nächste bekannte, dazwischen wird überbrückt."
+      ],
+      [
+        "old",
+        "Blasse Linie vor einem Methodenwechsel: Werte nach der früheren Berechnungsart des Körperfetts."
+      ],
+      [
+        "switch",
+        "Methodenwechsel: 1 = Standard, 2 = Alternativ, + = Athlet. Hier von 1 auf 2."
+      ],
+      [
+        "pct",
+        "Orange gepunktet: Perzentil-Kurven P3, P10, P50, P90 und P97 der gewählten Referenz (WHO oder DE)."
+      ]
+    ],
+    "howTitle": "So funktioniert die Waage",
+    "how": [
+      [
+        "auto",
+        "Automatik",
+        "Einfach draufstellen: Die Waage erkennt die Person am Gewicht, im Vergleich mit dem bisherigen Verlauf."
+      ],
+      [
+        "tap",
+        "Vorwählen",
+        "Vorher eine Person, Gast oder Baby/Tier antippen. Die Taste leuchtet, die Wahl gilt wenige Minuten (bei Personen Rahmen dünner, bei Gast und Baby/Tier blinkt in der letzten Minute der Rahmen ihres Symbols im Display, Automatik nie). Läuft sie ab, wechselt die Waage in Automatik (aktiv, 00.00) für dieselbe Zeit, danach in Ruhe."
+      ],
+      [
+        "done",
+        "Erkannt",
+        "Passt genau eine Person, bekommt sie die Messung. Ihre Taste leuchtet, das Ergebnis bleibt einige Minuten stehen (display_hold, Standard 5)."
+      ],
+      [
+        "open",
+        "Unklar",
+        "Passt niemand oder mehrere, bleibt die Messung offen. Personen ohne Werte und die nächstliegende Person blinken im Wechsel mit der Gast-Taste. Person tippen = zuordnen, Gast-Taste = als Gast behalten, nicht speichern."
+      ],
+      [
+        "guest",
+        "Gast",
+        "Nur Gewicht, nichts wird gespeichert."
+      ],
+      [
+        "baby",
+        "Baby/Tier",
+        "Zwei Schritte: erst allein, dann mit Baby/Tier. Das Display zeigt die Differenz. Gibt es ein Baby (unter 2 Jahren) als Person, blinkt seine Taste im Wechsel mit der Gast-Taste: Baby tippen = nur das Gewicht speichern, Gast-Taste = nicht speichern."
+      ],
+      [
+        "timer",
+        "Zeitablauf",
+        "Die Zeit einer Person zeigt ihre leuchtende Taste: der Rahmen wird dünner (Standard, `key_timer`), optional läuft ein Rand zurück oder die Taste dunkelt ab. Gast und Baby/Tier zeigen die Zeit am Symbol im Display: in der letzten Minute blinkt sein Rahmen. Automatik blinkt nie. Die drei Modustasten selbst leuchten nie. Es gibt vier Zeiten: Vorwahl (Wartezeit, einstellbar mit `choice_minutes`), danach Automatik aktiv (dieselbe Zeit), das Ergebnis (`display_hold`) und die Historie (`history_hold`)."
+      ],
+      [
+        "sync",
+        "Nochmal wiegen",
+        "Kurz danach erneut draufstellen ersetzt die vorige Messung."
+      ],
+      [
+        "hist",
+        "Ältere Messungen",
+        "Die Zahlen 1–10 oben im Display rufen sie auf. Ein zweiter Tipp oder nach history_hold Sekunden (Standard 30) geht es zurück in den vorherigen Zustand."
+      ],
+      [
+        "fat",
+        "Körperfett",
+        "Methode 1 (Standard), 2 (Alternativ) oder Athlet. Ohne Impedanz (Socken, Schuhe) nur Gewicht."
+      ],
+      [
+        "bmi",
+        "Kinder",
+        "BMI als Perzentil (WHO oder DE), Kurven im Diagramm."
+      ],
+      [
+        "pending",
+        "Offene Messungen",
+        "Unter der Waage zuordnen, verschieben oder verwerfen. Die Benachrichtigung geht an die vorgeschlagenen Personen."
+      ]
+    ],
+    "flowTitle": "Ablauf",
+    "flow": {
+      "idle": "Ruhe",
+      "pre": "Vorwahl",
+      "weigh": "Wiegen",
+      "known": "Erkannt",
+      "gb": "Gast / Baby/Tier",
+      "open": "Unklar",
+      "result": "Ergebnis",
+      "hist": "Historie",
+      "auto": "Automatik",
+      "back": "Zurück",
+      "step": "wiegen",
+      "tap": "tippen",
+      "person": "Person tippen"
+    },
+    "flowNote": "Ruhe ist der Zustand ohne Anzeige. Wer auf die Waage steigt, wiegt in Automatik. Bei „Unklar“ geht es mit der Gast-Taste zurück in Ruhe (nicht gespeichert); Gast und Baby/Tier werden nur gezeigt.",
+    "timesTitle": "Zeiten",
+    "times": {
+      "pre": "{T} Min.",
+      "auto": "{T} Min.",
+      "res": "{H} Min.",
+      "hist": "{Y} s"
+    },
+    "timesNote": "Alle Zeiten stellst du in der Karte ein: Vorwahl und Automatik mit choice_minutes (die Integration setzt nur die Vorwahl nach dieser Zeit zurück), das Ergebnis mit display_hold, die Historie mit history_hold. Ohne choice_minutes gilt die Wartezeit der Integration.",
+    "confirmBaby": "Das Baby-Ergebnis ({w} kg) für {n} speichern? Es wird nur das Gewicht gespeichert.",
+    "babySave": "Speichern",
+    "babyDismiss": "Nicht speichern",
+    "growthHint": "Perzentile und Kurven brauchen die Wachstumsdaten {ref} (eigene Datei, Lizenz {licence}).",
+    "growthEnable": "Aktivieren",
+    "legendTitle": "Symbole der Waage",
+    "legend": [
+      [
+        "hist",
+        "Frühere Messung ansehen (1 = neueste), nochmal tippen = zurück"
+      ],
+      [
+        "ohm",
+        "Impedanz in Ohm, daneben kg mit Änderung zur Messung davor"
+      ],
+      [
+        "arrow",
+        "▲ gestiegen, ▼ gesunken, ▬ gleich (zur Messung davor)"
+      ],
+      [
+        "bmi",
+        "BMI, bei Kindern die Perzentile (P)"
+      ],
+      [
+        "fat",
+        "Körperfett in Prozent, nur mit Impedanz"
+      ],
+      [
+        "shoe",
+        "Ohne Impedanz gemessen (Socken, Schuhe, trockene Füße): nur Gewicht"
+      ],
+      [
+        "sync",
+        "Ersetzt die Messung von eben"
+      ],
+      [
+        "lift",
+        "Athleten-Kurve"
+      ],
+      [
+        "m1",
+        "Fett-Methode 1: Standard"
+      ],
+      [
+        "m2",
+        "Fett-Methode 2: Alternativ"
+      ],
+      [
+        "nosave",
+        "Nicht gespeichert (Gast, Baby/Tier)"
+      ],
+      [
+        "auto",
+        "Automatik-Taste: die Waage erkennt die Person am Gewicht"
+      ],
+      [
+        "guest",
+        "Gast-Taste (ein Tipp schaltet um, nicht gespeichert)"
+      ],
+      [
+        "baby",
+        "Baby/Tier-Taste (zuerst allein, dann mit Baby/Tier)"
+      ],
+      [
+        "dim",
+        "Gedimmt: aus. Ein gedimmter Rahmen um das Automatik-Symbol zeigt in Ruhe, dass Automatik vorgewählt ist."
+      ],
+      [
+        "lit",
+        "Leuchtend: jetzt aktiv. Die Personentaste oder das Symbol im Display wartet auf eine Messung oder gehört zum gezeigten Ergebnis (Person, Gast, Baby/Tier). Die Modustasten bleiben dunkel."
+      ],
+      [
+        "frame",
+        "Restzeit (Standard) der Personentaste: Der Rahmen ist erst dick und wird bis zum Ablauf dünner, bis er so dünn ist wie bei jeder Taste. Bei Gast und Baby/Tier blinkt stattdessen in der letzten Minute der Rahmen des Symbols im Display (Automatik nie)."
+      ],
+      [
+        "ring",
+        "Optional (key_timer: ring): Der Rand läuft an der Personentaste zurück wie ein Zeiger."
+      ],
+      [
+        "fade",
+        "Optional (key_timer: fade): Die Taste dunkelt ab. Blinken in der letzten Minute ist eine eigene Option (key_blink)."
+      ],
+      [
+        "blink",
+        "Blinkend: Messung offen. Die vorgeschlagenen Personen und die Gast-Taste (mit Symbol) blinken im Wechsel."
+      ]
+    ],
+    "guestNote": "nicht gespeichert",
+    "sincePrevious": "Änderung zur Messung davor",
+    "holdSteps": [
+      "1/2 allein",
+      "2/2 mit Baby/Tier"
+    ],
+    "legendInv": {
+      "hist": "Frühere Messung ansehen (1 = neueste): die aufgerufene Zahl ist hell hinterlegt. Nochmal tippen = zurück.",
+      "dim": "Eingestellt, ruhend: Das Symbol des Modus (z. B. Automatik in Ruhe) ist gedimmt hinterlegt, sonst zeigt es nur das gedimmte Symbol.",
+      "lit": "Aktiv: Das Symbol im Display ist hell hinterlegt, wenn der Modus auf eine Messung wartet oder zum Ergebnis gehört. Die Personentaste leuchtet. Die Modustasten bleiben dunkel."
+    },
+    "howInv": {
+      "timer": "Die Zeit einer Person zeigt ihre leuchtende Taste (Rahmen, Ring oder Abdunkeln, `key_timer`). Gast und Baby/Tier zeigen die Zeit am Symbol im Display: In der letzten Minute pulsiert das gefüllte Feld langsam (hell und gedimmt). Automatik blinkt nie. Es gibt vier Zeiten: Vorwahl (`choice_minutes`), danach Automatik aktiv (dieselbe Zeit), das Ergebnis (`display_hold`) und die Historie (`history_hold`)."
+    },
+    "carriedFrom": "Stand {when} (letzte Messung mit diesem Wert)",
+    "holdSame": "Beide Messungen fast gleich: Wurde das Baby/Tier mitgewogen? Nichts zu speichern.",
+    "replaced": "ersetzt die Messung von eben",
+    "whoWasIt": "Wer war das? Taste antippen",
+    "hold": "Baby/Tier",
+    "latest": "Zuletzt",
+    "days": "{n} Tage",
+    "years": "{n} Jahre",
+    "noChart": "Noch kein Verlauf.",
+    "filterClothed": {
+      "any": "Kleidung: egal",
+      "yes": "Nur mit Kleidung gewogen",
+      "no": "Nur ohne Kleidung gewogen"
+    },
+    "filterImpedance": {
+      "any": "Impedanz: egal",
+      "with": "Nur Messungen mit Impedanz",
+      "without": "Nur Messungen ohne Impedanz"
+    },
+    "filterHint": "Mit Filter zählen nur die gespeicherten Einzelmessungen, ab {date}.",
+    "filterNone": "Mit Filter zählen nur gespeicherte Einzelmessungen, es gibt noch keine.",
+    "filterEmpty": "Mit diesem Filter gibt es keine Einträge mit diesen Werten. Körperwerte gibt es nur bei Messungen mit Impedanz.",
+    "clothedOn": "Mit Kleidung gewogen (tippen: ohne)",
+    "clothedOff": "Ohne Kleidung gewogen (tippen: mit Kleidung)",
+    "periods": {
+      "month": "30 Tage",
+      "year": "1 Jahr",
+      "all": "Alles"
+    },
+    "chartViews": {
+      "fat": "Gewicht + Fett",
+      "composition": "Zusammensetzung",
+      "percentile": "Gewicht + Perzentile",
+      "height": "Größe",
+      "bmi": "BMI"
+    },
+    "comp": {
+      "ffm": "Fettfrei",
+      "tissue": "Gewebe",
+      "substances": "Stoffe",
+      "fat": "Fett",
+      "subcut": "Unterhautfett",
+      "restFat": "Übriges Fett (u. a. viszeral)",
+      "muscle": "Muskeln und Organe",
+      "bone": "Knochen",
+      "water": "Wasser",
+      "protein": "Protein",
+      "rest": "Übriges",
+      "visceral": "Viszeralfett",
+      "total": "Gewicht",
+      "pct": "Gewicht + Fett in Prozent",
+      "kg": "Zusammensetzung in kg"
+    },
+    "chartLabels": {
+      "weight": "Gewicht",
+      "body_fat_percentage": "Fett",
+      "fat_mass": "Fettmasse",
+      "fat_free_mass": "Fettfreie Masse",
+      "bmi_percentile": "BMI-Perzentile",
+      "height": "Größe",
+      "height_percentile": "Größen-Perzentile",
+      "body_mass_index": "BMI"
+    },
+    "heightOld": "Größe vor {n} Monaten eingetragen",
+    "heightAsk": "Wie groß ist {name} jetzt?",
+    "heightEdit": "Größe ändern",
+    "heightAdd": "Größe eintragen",
+    "change": "Veränderung",
+    "confirmDelHeight": "Größe vom {h} bei {p} löschen?",
+    "private": "Nur für diese Person und Admins sichtbar",
+    "newMeasurement": "neue Messung",
+    "heightNow": "jetzt eintragen",
+    "heightRange": "Bitte eine Größe zwischen 40 und 250 cm eingeben.",
+    "save": "Speichern",
+    "grid": "Raster",
+    "bandsFor": {
+      "male": "Jungen",
+      "female": "Mädchen"
+    },
+    "sexes": {
+      "male": "männlich",
+      "female": "weiblich"
+    },
+    "curvesToggle": "Kurven ein/aus",
+    "zonesValue": "WHO · normal 18,5–25",
+    "zoneShort": [
+      "unter",
+      "normal",
+      "über",
+      "adipös"
+    ],
+    "measurements": "Messungen",
+    "allGood": "{n} Werte im grünen Bereich",
+    "noMeasurements": "Noch keine Messungen.",
+    "date": "Datum",
+    "more": "Mehr anzeigen",
+    "less": "Weniger anzeigen",
+    "move": "Verschieben",
+    "remove": "Löschen",
+    "cancel": "Abbrechen",
+    "impedance": "mit Impedanz",
+    "noImpedance": "nur Gewicht",
+    "suggested": "passt zum Gewicht",
+    "confirmAssign": "Messung vom {m} {p} zuordnen?",
+    "confirmMove": "Messung vom {m} von {f} nach {t} verschieben? Die Körperwerte werden für {t} neu berechnet.",
+    "confirmRemove": "Messung vom {m} bei {p} endgültig löschen?",
+    "pickTarget": "Messung vom {m} verschieben an:",
+    "notFound": "Keine Waage gefunden. Bietet die Integration die Waagen-Schnittstelle (S) an, und ist Home Assistant neu gestartet?",
+    "failed": "Das hat nicht geklappt:",
+    "cols": {
+      "weight": "Gewicht",
+      "body_mass_index": "BMI",
+      "body_fat_percentage": "Fett",
+      "muscle_mass": "Muskel",
+      "body_water_percentage": "Wasser",
+      "skeletal_muscle_percentage": "Skelettm.",
+      "bone_mass": "Knochen",
+      "protein_percentage": "Protein",
+      "basal_metabolic_rate": "Grundums.",
+      "fat_free_mass": "Fettfrei",
+      "visceral_fat": "Viszeral",
+      "subcutaneous_fat_percentage": "Unterhaut",
+      "metabolic_age": "Stoffw.-Alter",
+      "impedance": "Impedanz"
+    }
+  },
+  "info": {
+    "title": "Werte verstehen",
+    "bands": {
+      "low": "niedrig",
+      "ok": "normal",
+      "high": "erhöht",
+      "veryHigh": "hoch"
+    },
+    "bmiBands": [
+      "Unter-",
+      "Normal-",
+      "Über-",
+      "Adipositas"
+    ],
+    "howTitle": "So rechnet die Waage",
+    "how": [
+      "Die Waage misst nur zwei Dinge: das <b>Gewicht</b> und die <b>Impedanz</b>, also wie gut ein schwacher Strom von Fuß zu Fuß durch den Körper fließt.",
+      "Daraus wird mit einer Formel das <b>Körperfett</b> geschätzt. Alle anderen Werte (Wasser, Muskeln, Protein, Knochen, Grundumsatz) werden danach mit festen Faktoren aus Körperfett und Gewicht abgeleitet. Sie bewegen sich deshalb immer gemeinsam und sind keine eigenen Messungen.",
+      "Am verlässlichsten ist der <b>Trend</b> über Wochen, nicht der einzelne Wert."
+    ],
+    "algoTitle": "Berechnungsarten",
+    "algos": {
+      "standard": [
+        "Standard",
+        "Vor allem BMI, Alter und Geschlecht. Die Impedanz verschiebt das Ergebnis nur um etwa 1 Prozentpunkt. Sehr stabil, reagiert aber kaum auf Training."
+      ],
+      "alternative": [
+        "Alternativ",
+        "Rechnet zuerst die fettfreie Masse aus Größe, Gewicht, Alter und Impedanz, der Rest ist Fett. Auch hier spielt die Impedanz nur eine kleine Rolle. Liegt meist 4–6 Prozentpunkte über Standard. Nimm die Variante, die zur App des Herstellers passt."
+      ],
+      "athlete": [
+        "Athlet",
+        "Flachere Kurve ohne Impedanz. Für Menschen mit viel Muskulatur, bei denen ein hoher BMI nicht von Fett kommt. Ergibt durchweg deutlich weniger Fett, oft 5–8 Prozentpunkte."
+      ]
+    },
+    "yourValues": "Mit der letzten Messung ergäbe sich",
+    "active": "aktiv",
+    "activeNote": "Umrahmt: die eingestellte Methode.",
+    "normal": "normal",
+    "athleteCol": "Athlet",
+    "setHint": "Umstellen in den Einstellungen der Waagen-Integration (Einstellungen → Geräte & Dienste), beim Benutzer.",
+    "child": "Unter 18 gelten die Formeln und Bereiche für Erwachsene nicht. Bei Kindern und Jugendlichen zählt die BMI-Perzentile für Alter und Geschlecht, sie steht beim BMI. Die Berechnungsart ist fest auf Standard. Körperfett und abgeleitete Werte sind nur grobe Schätzungen.",
+    "avgForWeight": "Durchschnitt bei diesem Gewicht etwa {v} kg",
+    "realAge": "Tatsächliches Alter: {n} Jahre",
+    "ageBands": {
+      "ok": "jünger",
+      "high": "älter"
+    },
+    "visceralBands": [
+      "gesund",
+      "erhöht",
+      "hoch"
+    ],
+    "percentile": "BMI-Perzentile {p} ({ref}): {c}. Von 100 Kindern gleichen Alters und Geschlechts haben {p} einen niedrigeren BMI.{other}",
+    "categories": {
+      "thinness": "Untergewicht",
+      "normal": "normal",
+      "overweight": "Übergewicht",
+      "obesity": "Adipositas"
+    },
+    "kidBmi": {
+      "who": "Kinder und Jugendliche (WHO, 5–19 Jahre): unter Perzentile 2,3 Untergewicht, bis 84 normal, bis 97,7 Übergewicht, darüber Adipositas.",
+      "kh": "Kinder und Jugendliche (Kromeyer-Hauschild, 0–18 Jahre): unter Perzentile 10 Untergewicht, bis 90 normal, bis 97 Übergewicht, darüber Adipositas."
+    },
+    "kidRanges": {
+      "body_fat_percentage": "Für Kinder gibt es keine verlässlichen Bereiche aus der Waage. Nur den eigenen Verlauf betrachten.",
+      "body_water_percentage": "Kinder haben anteilig mehr Wasser als Erwachsene. Die Bereiche für Erwachsene gelten nicht."
+    },
+    "mifflin": "Zum Vergleich nach Mifflin-St-Jeor (ohne Körperfett): {v} kcal",
+    "heightBands": [
+      "klein",
+      "normal",
+      "groß"
+    ],
+    "heightCuts": "Üblicher Bereich: Perzentile 3 bis 97 (WHO: 2,3 bis 97,7). Außerhalb lohnt ein Gespräch mit der Kinderärztin oder dem Kinderarzt, wenn sich die Größe plötzlich verändert.",
+    "heightPct": "Größen-Perzentile {p} ({ref}): Von 100 Kindern gleichen Alters und Geschlechts sind {p} kleiner.",
+    "compTitle": "Zusammensetzung",
+    "compSub": "Fett / fettfrei",
+    "compIntro": "Dasselbe Gewicht in zwei Aufteilungen: nach Gewebe und nach Stoffen. Jeder Balken ergibt das ganze Gewicht, das Fett ist in beiden gleich und nach Tiefe geteilt (zwei Orange-Töne). Alles wird aus Fettanteil und Gewicht abgeleitet, es sind keine einzelnen Messungen.",
+    "compKid": "Bei Kindern sind das nur grobe Schätzungen.",
+    "compInfo": {
+      "fat": "Anteil des Körperfetts am Gewicht, aus der Impedanz geschätzt. Alles andere ist die fettfreie Masse.",
+      "muscle": "Gewicht minus Fett minus Knochen. Enthält auch Organe und das Wasser in den Muskeln, nicht nur Muskeln.",
+      "bone": "Aus Fettanteil und Gewicht geschätzt, nicht gemessen.",
+      "subcut": "Fett direkt unter der Haut. Der Rest ist übriges Fett, darin steckt auch das viszerale Fett um die Organe.",
+      "restFat": "Übriges Fett, darin auch das viszerale Fett um die Organe.",
+      "visceral": "Stufenwert für das Fett um die Organe (bis 9 gesund), keine Masse. Es lässt sich nicht aus dem Gesamtfett herausrechnen.",
+      "water": "Körperwasser. Muskeln enthalten viel Wasser, Fett wenig.",
+      "protein": "Eiweiß, vor allem in den Muskeln.",
+      "rest": "Gewicht minus Wasser, Fett und Protein, vor allem Mineralstoffe."
+    },
+    "metrics": {
+      "body_mass_index": [
+        "BMI",
+        "Gewicht geteilt durch Größe im Quadrat. Einfach und gut vergleichbar, unterscheidet aber nicht zwischen Muskeln und Fett.",
+        "Erwachsene (WHO): unter 18,5 Untergewicht, 18,5–24,9 normal, 25–29,9 Übergewicht, ab 30 Adipositas."
+      ],
+      "body_fat_percentage": [
+        "Körperfett",
+        "Anteil des Fetts am Gewicht. Berechnet aus BMI, Alter, Geschlecht und Impedanz (siehe Berechnungsarten).",
+        "Gesunde Bereiche steigen mit dem Alter leicht an. Über den Tag schwankt der Wert um mehrere Prozentpunkte (Trinken, Essen, Sport)."
+      ],
+      "body_water_percentage": [
+        "Körperwasser",
+        "Anteil des Wassers am Gewicht. Muskeln enthalten viel Wasser, Fett wenig. Hier aus dem Körperfett abgeleitet: weniger Fett bedeutet mehr Wasser.",
+        "Erwachsene etwa 45–60 % (Frauen) bzw. 50–65 % (Männer)."
+      ],
+      "skeletal_muscle_percentage": [
+        "Skelettmuskel",
+        "Anteil der Muskeln, die an den Knochen sitzen und die du bewegen kannst. Aus dem Körperfett abgeleitet.",
+        "Steigt, wenn das Körperfett sinkt. Referenzbereiche: Herstellerwerte (Omron) für Haushaltswaagen, nach Geschlecht und Alter."
+      ],
+      "muscle_mass": [
+        "Muskelmasse",
+        "Gewicht minus Fett minus Knochen. Enthält auch Organe und Wasser in den Muskeln, ist also mehr als reine Muskulatur.",
+        "Sinnvoll vor allem als eigener Verlauf."
+      ],
+      "fat_free_mass": [
+        "Fettfreie Masse",
+        "Alles außer Fett: Muskeln, Organe, Knochen, Wasser.",
+        "Bleibt sie beim Abnehmen gleich, geht vor allem Fett."
+      ],
+      "bone_mass": [
+        "Knochenmasse",
+        "Geschätztes Mineralgewicht der Knochen. Die Waage kann Knochen nicht messen, der Wert folgt aus Gewicht und Körperfett.",
+        "Ändert sich in Wirklichkeit nur sehr langsam. Für die Knochengesundheit sagt er nichts aus."
+      ],
+      "protein_percentage": [
+        "Protein",
+        "Geschätzter Eiweißanteil am Gewicht, aus dem Körperfett abgeleitet.",
+        "Sinkt das Körperfett, steigt der Wert. Er hat keine eigene Aussagekraft."
+      ],
+      "basal_metabolic_rate": [
+        "Grundumsatz",
+        "Energie, die der Körper in völliger Ruhe pro Tag verbraucht. Hier aus Gewicht und Körperfett geschätzt.",
+        "Der Tagesbedarf liegt je nach Bewegung etwa 20–80 % darüber."
+      ],
+      "visceral_fat": [
+        "Viszeralfett",
+        "Schätzung des Fetts im Bauchraum rund um die Organe, als Stufe von 1 bis 30. Aus BMI und Körperfett abgeleitet; die Waage misst es nicht direkt.",
+        "Bis 9 gesund, 10–14 erhöht, ab 15 hoch. Schätzung, weicht von der App des Herstellers ab."
+      ],
+      "subcutaneous_fat_percentage": [
+        "Unterhautfett",
+        "Schätzung des Fetts direkt unter der Haut, als Anteil am Gewicht: Körperfett ohne den Anteil im Bauchraum.",
+        "Folgt dem Körperfett. Schätzung, weicht von der App des Herstellers ab."
+      ],
+      "metabolic_age": [
+        "Stoffwechselalter",
+        "Schätzung, zu welchem Alter Gewicht, BMI und Körperfett im Durchschnitt passen.",
+        "Unter dem tatsächlichen Alter ist gut. Schätzung, weicht von der App des Herstellers ab."
+      ],
+      "impedance": [
+        "Impedanz",
+        "Widerstand des Körpers gegen einen schwachen Strom von Fuß zu Fuß, in Ohm. Mehr Wasser und Muskeln senken ihn.",
+        "Hängt stark von feuchten oder trockenen Füßen, Trinken und Uhrzeit ab. Typisch sind einige hundert Ohm."
+      ]
+    },
+    "tipsTitle": "Vergleichbar messen",
+    "tips": "Immer zur gleichen Zeit wiegen, am besten morgens nach dem Aufstehen und dem Toilettengang, barfuß, mit trockenen Füßen und vor dem Frühstück. Nach Sport, Sauna oder viel Trinken weichen die Körperwerte ab.",
+    "disclaimer": "Keine medizinische Beratung. Haushaltswaagen schätzen die Körperzusammensetzung nur. Bei Fragen zu den eigenen Werten bitte ärztlich abklären.",
+    "refNames": {
+      "kh": "Kromeyer-Hauschild, Deutschland",
+      "who": "WHO, international"
+    },
+    "refShort": {
+      "kh": "Kromeyer-Hauschild",
+      "who": "WHO"
+    },
+    "percentileOther": " Nach {name}: Perzentile {p}."
+  },
+  "editor": {
+    "groups": {
+      "basic": "Allgemein",
+      "look": "Darstellung",
+      "sections": "Bereiche",
+      "times": "Zeiten",
+      "timer": "Verhalten der Tasten",
+      "global": "Für alle Karten (Kinder, Erkennung)",
+      "scale": "Waage",
+      "view": "Darstellung"
+    },
+    "labels": {
+      "title": "Titel",
+      "person": "Nur diese Person",
+      "rows": "Zeilen vor „mehr anzeigen“",
+      "values_max_age_days": "Werte ohne Impedanz übernehmen (Tage)",
+      "language": "Sprache",
+      "sort": "Reihenfolge der Personen",
+      "skin": "Aussehen der Waage",
+      "mode_field_width": "Breite von Rahmen und Feld der Modi",
+      "invert_brightness": "Helligkeit des aktiven Modus (invertiert)",
+      "invert_modes": "Modi invertiert (unten im Display)",
+      "invert_history": "Historienzahl invertiert (oben im Display)",
+      "overview": "Übersicht statt Reitern",
+      "list": "Zeilen in der Übersicht",
+      "hide_empty_pending": "Leere offene Messungen verstecken",
+      "pending": "Offene Messungen",
+      "next_user": "Waage anzeigen",
+      "chart": "Diagramm",
+      "profile": "Profilzeile",
+      "info": "Werte und Erklärungen",
+      "grid": "Raster im Diagramm",
+      "curves": "Kinder-Kurven",
+      "display_hold": "Ergebnis anzeigen (Minuten)",
+      "history_hold": "Historie anzeigen (Sekunden)",
+      "choice_minutes": "Dauer einer Vorwahl (Minuten)",
+      "refresh_seconds": "Neu zeichnen alle (Sekunden)",
+      "key_timer": "Restzeit an der Personentaste",
+      "key_blink": "Personentaste blinkt in der letzten Minute",
+      "blink_tolerance_kg": "Blinken bei offener Messung ab Abweichung (kg)",
+      "baby_max_months": "Baby/Tier bis Alter (Monate)",
+      "reference": "Referenz für Kinder",
+      "compare_references": "Beide Referenzen vergleichen", "growth_who": "WHO-Wachstumsdaten verwenden", "growth_kh": "Kromeyer-Hauschild-Daten verwenden",
+      "directory": "Verzeichnis-Entität"
+    },
+    "helpers": {
+      "title": "Ohne Titel zeigt die Karte ein Waagen-Symbol.",
+      "person": "Name oder Kennung einer Person. Leer = alle.",
+      "rows": "Wie viele Messungen die Tabelle zuerst zeigt.",
+      "values_max_age_days": "Fehlt dem neuesten Eintrag ein Körperwert (Messung ohne Impedanz), zeigt die Kachel den Wert der letzten Messung damit, wenn sie höchstens so alt ist, blass mit Zeitangabe. 0 = aus.",
+      "language": "Automatisch: die Sprache deines Home-Assistant-Profils. Jede andere Wahl: immer diese Sprache.",
+      "sort": "Nach Alter: Älteste zuerst, Personen ohne Geburtsdatum zuletzt. Nach Name: alphabetisch.",
+      "skin": "Gerät: schwarze Waage mit rotem Display, wie ein echtes Gerät. Theme: Waage und alle Anzeigen (auch das Gewicht) in der Primärfarbe deines Dashboard-Themes, Fläche in Themefarben.",
+      "mode_field_width": "Schmal: Rahmen oder Feld sitzt eng um das Symbol (Standard). Breit: so breit wie die Taste darunter. Gilt für die Darstellung mit Rahmen und für die invertierte gleichermaßen, beide haben dieselbe Größe.",
+      "invert_brightness": "Nur bei invertierten Modi: Helligkeit des aktiven Feldes in Prozent der Display-Farbe (Standard 65). Niedriger = dezenter. Das eingestellte, ruhende Feld und die Pulsphase in der letzten Minute sind 40 % davon.",
+      "invert_modes": "Aus (heute): Das Symbol des aktiven Modus leuchtet, der eingestellte Modus hat einen Rahmen, in der letzten Minute blinkt der Rahmen. An: Das Symbol steht dunkel auf gefülltem Feld (aktiv hell, eingestellt ruhend gedimmt), in der letzten Minute pulsiert das Feld langsam. Die Legende passt sich an.",
+      "invert_history": "Aus (heute): Die aufgerufene Zahl 1–10 hat einen Rahmen. An: Die Zahl steht dunkel auf hellem Feld. Sie wird über die Zeit blasser. Die Legende passt sich an.",
+      "overview": "Eine Zeile je Person mit letztem Gewicht statt Reiter und Diagramm.",
+      "list": "In der Übersicht: aus = nur die Waage, die Personentasten führen zu den Ansichten (Verknüpfungen im YAML: `links`).",
+      "hide_empty_pending": "Den Bereich „Offene Messungen“ ausblenden, solange nichts offen ist.",
+      "pending": "Bereich mit offenen, noch nicht zugeordneten Messungen.",
+      "next_user": "Aus = die ganze Waage (Display, Modustasten, Personentasten) wird ausgeblendet. Ohne sie lässt sich nicht vorwählen.",
+      "key_blink": "Zusätzlich zur gewählten Art blinkt die Taste in der letzten Minute. Standard aus.",
+      "chart": "Verlaufsdiagramm unter der Tabelle.",
+      "profile": "Zeile mit Alter, Größe und Fett-Methode unter dem Namen.",
+      "info": "Wertekacheln mit Bewertung und der einklappbare Abschnitt „So rechnet die Waage“.",
+      "grid": "Aus = Diagramm ohne Raster und ohne Raster-Knopf.",
+      "curves": "Aus = nie Perzentil-Kurven der Kinder zeichnen.",
+      "display_hold": "So lange bleibt ein Ergebnis im Display, danach geht es in Ruhe.",
+      "history_hold": "So lange bleibt eine aufgerufene ältere Messung (1–10) stehen. Die Wahl bleibt erhalten.",
+      "choice_minutes": "Dauer von Vorwahl und anschließender Automatik. 0 = Wartezeit der Integration.",
+      "refresh_seconds": "0 = aus. Empfohlen 10, wenn mehrere Ansichten gleichzeitig offen sind.",
+      "key_timer": "Wie die leuchtende Personentaste die Restzeit zeigt, eine Art schließt die anderen aus. Rahmen wird dünner: dick am Anfang, am Ende wie jede Taste. Rand läuft zurück: ein Rand um die Taste schrumpft wie ein Zeiger. Taste dunkelt ab: sie wird bis zum Ablauf dunkler. Keine: nichts. Gast und Baby/Tier zeigen ihre Zeit am Symbol im Display (Rahmen blinkt in der letzten Minute), Automatik blinkt nie.",
+      "blink_tolerance_kg": "Bei einer offenen Messung blinken die Vorschläge und jede Person, deren letztes Gewicht höchstens so weit abweicht.",
+      "baby_max_months": "Personen unter diesem Alter bekommen das Baby/Tier-Ergebnis zum Speichern angeboten.",
+      "reference": "WHO 2007: internationale Referenz, 5–19 Jahre. Kromeyer-Hauschild: deutsche Referenz, 0–18 Jahre. Sie bestimmt Perzentile, Bewertung und Kurven.",
+      "compare_references": "Beide Referenzen nebeneinander zeigen (Diagramm, BMI-Erklärung).", "growth_who": "Lädt die WHO-Tabelle 2007 (de Onis et al., Lizenz CC BY-NC-SA 3.0 IGO: Namensnennung, nicht kommerziell, gleiche Bedingungen) aus der Datei neben der Karte. Nötig für Perzentile und Kurven bei Kindern. Wird nur geladen, wenn hier aktiviert.", "growth_kh": "Lädt die Tabelle von Kromeyer-Hauschild 2001 (Lizenz GPL-3.0-or-later, wie im R-Paket childsds) aus der Datei neben der Karte. Nötig für Perzentile und Kurven nach der deutschen Referenz. Wird nur geladen, wenn hier aktiviert.",
+      "directory": "Nur nötig, wenn die Karte das Verzeichnis nicht selbst findet."
+    },
+    "options": {
+      "language": {
+        "auto": "Automatisch"
+      },
+      "sort": {
+        "age": "Nach Alter",
+        "name": "Nach Name"
+      },
+      "skin": {
+        "device": "Gerät (schwarz/rot)",
+        "theme": "Theme"
+      },
+      "mode_field_width": {
+        "narrow": "Schmal (um das Symbol)",
+        "wide": "Breit (Tastenbreite)"
+      },
+      "key_timer": {
+        "frame": "Rahmen wird dünner",
+        "ring": "Rand läuft zurück",
+        "fade": "Taste dunkelt ab",
+        "none": "Keine",
+        "custom": "Benutzerdefiniert (YAML)"
+      },
+      "reference": {
+        "who": "WHO 2007",
+        "kh": "Kromeyer-Hauschild"
+      }
+    }
+  }
+}

@@ -1,0 +1,696 @@
+{
+  "_meta": {
+    "language": "English",
+    "machine_translated": false
+  },
+  "ui": {
+    "title": "Scale",
+    "overview": "Scale",
+    "holdOpen": "hold to open their view",
+    "pending": "Open measurements",
+    "noPending": "No open measurements.",
+    "assignTo": "Assign to",
+    "assign": "Assign",
+    "next": "Next on the scale",
+    "auto": "Automatic",
+    "guest": "Guest",
+    "until": "until {t}",
+    "discard": "Guest / discard",
+    "discardShort": "Discard",
+    "confirmDiscard": "Discard the measurement from {m}? It is not assigned to anyone and not stored.",
+    "guestResult": "Guest",
+    "chartLegendTitle": "Chart and table: controls and markings",
+    "chartLegend": [
+      [
+        "_",
+        "Using the chart"
+      ],
+      [
+        "views",
+        "View: composition, BMI, height; for children also weight + percentile."
+      ],
+      [
+        "comppct",
+        "%: in the composition view, switch between kg and percent (weight + fat in percent)."
+      ],
+      [
+        "periods",
+        "Period: 30 days, 1 year, all. Without a filter the line comes from the long-term statistics over all years (daily means, weekly for \"all\")."
+      ],
+      [
+        "fc",
+        "Clothes filter: any, only weighed without or only with clothes. Applies to weight, BMI and composition."
+      ],
+      [
+        "fi",
+        "Impedance filter: any, only with or only without impedance. Applies to the body composition only (fat, water, muscle), the only values that need impedance. Weight, BMI and height do not depend on it."
+      ],
+      [
+        "fnote",
+        "With a filter only the stored single entries count (as far back as the integration keeps them), not the long-term statistics; a note under the chart gives the start. If no entry fits, the chart stays empty. Height has no filters."
+      ],
+      [
+        "grid",
+        "Grid on/off."
+      ],
+      [
+        "curves",
+        "Curves on/off. Adults: BMI ranges. Children: two buttons WHO and DE (Kromeyer-Hauschild); a tap picks the reference, a second tap hides the curves."
+      ],
+      [
+        "_",
+        "Table under the chart (one row per reading)"
+      ],
+      [
+        "tshirt",
+        "T-shirt: weighed with clothes (filled) or without (outline). A tap switches it; the reading is stored again with the same time and replaces the old one."
+      ],
+      [
+        "move",
+        "Move: gives the reading to another person (their profile recalculates the body values), after confirmation."
+      ],
+      [
+        "delete",
+        "Delete: removes the reading for good, after confirmation. It disappears from the single entries, not from the sensors' long-term statistics."
+      ],
+      [
+        "hight",
+        "Height: the Height view has a table of its own. Pencil = correct an entry, bin = delete an entry, plus = add a new height."
+      ],
+      [
+        "_",
+        "Markings"
+      ],
+      [
+        "est",
+        "Faded or dotted: estimated. There is no measured value for that time, the last or next known one applies, with a bridge in between."
+      ],
+      [
+        "old",
+        "Faded line before a method change: values from the earlier body-fat calculation."
+      ],
+      [
+        "switch",
+        "Method change: 1 = standard, 2 = alternative, + = athlete. Here from 1 to 2."
+      ],
+      [
+        "pct",
+        "Orange dotted: percentile curves P3, P10, P50, P90 and P97 of the chosen reference (WHO or DE)."
+      ]
+    ],
+    "howTitle": "How the scale works",
+    "how": [
+      [
+        "auto",
+        "Automatic",
+        "Just step on: the scale recognises the person by weight, compared with the history so far."
+      ],
+      [
+        "tap",
+        "Preselect",
+        "Tap a person, guest or baby/pet first. The key lights up and the choice lasts a few minutes (a person's frame gets thinner; for guest and baby/pet the frame of their symbol in the display blinks in the last minute, automatic never). When it runs out the scale switches to Automatic (active, 00.00) for the same time, then to rest."
+      ],
+      [
+        "done",
+        "Recognised",
+        "If exactly one person fits, they get the reading. Their key lights up and the result stays for a few minutes (display_hold, default 5)."
+      ],
+      [
+        "open",
+        "Unclear",
+        "If nobody or several fit, the reading stays open. People without readings and the nearest person blink in turn with the guest key. Tap a person = assign, guest key = keep as a guest, not stored."
+      ],
+      [
+        "guest",
+        "Guest",
+        "Weight only, nothing is stored."
+      ],
+      [
+        "baby",
+        "Baby/pet",
+        "Two steps: alone first, then holding the baby/pet. The display shows the difference. If a baby (under 2 years) is a person, their key blinks in turn with the guest key: tap the baby = store the weight only, guest key = do not store."
+      ],
+      [
+        "timer",
+        "Time running out",
+        "A person's time shows on their lit key: its frame gets thinner (default, `key_timer`), optionally an outline runs back or the key darkens. Guest and baby/pet show their time on their symbol in the display: its frame blinks in the last minute. Automatic never blinks. The three mode keys themselves never light up. There are four times: preselect (waiting time, set with `choice_minutes`), then Automatic active (the same time), the result (`display_hold`) and the history (`history_hold`)."
+      ],
+      [
+        "sync",
+        "Weigh again",
+        "Stepping on again soon after replaces the previous reading."
+      ],
+      [
+        "hist",
+        "Earlier readings",
+        "The numbers 1–10 at the top of the display call them up. A second tap, or history_hold seconds later (default 30), goes back to the previous state."
+      ],
+      [
+        "fat",
+        "Body fat",
+        "Method 1 (standard), 2 (alternative) or athlete. Without impedance (socks, shoes) weight only."
+      ],
+      [
+        "bmi",
+        "Children",
+        "BMI as a percentile (WHO or DE), curves in the chart."
+      ],
+      [
+        "pending",
+        "Open readings",
+        "Assign, move or discard them below the scale. The notification goes to the suggested people."
+      ]
+    ],
+    "flowTitle": "Flow",
+    "flow": {
+      "idle": "Rest",
+      "pre": "Preselect",
+      "weigh": "Weigh",
+      "known": "Recognised",
+      "gb": "Guest / Baby/pet",
+      "open": "Unclear",
+      "result": "Result",
+      "hist": "History",
+      "auto": "Automatic",
+      "back": "Back",
+      "step": "weigh",
+      "tap": "tap",
+      "person": "tap a person"
+    },
+    "flowNote": "Rest is the state with nothing displayed. Whoever steps on the scale is weighed in Automatic. For “Unclear” the guest key returns to rest (not stored); guest and baby/pet are only shown.",
+    "timesTitle": "Times",
+    "times": {
+      "pre": "{T} min",
+      "auto": "{T} min",
+      "res": "{H} min",
+      "hist": "{Y} s"
+    },
+    "timesNote": "You set all times in the card: preselect and automatic with choice_minutes (the integration only resets the preselection after that time), the result with display_hold, the history with history_hold. Without choice_minutes the integration's waiting time applies.",
+    "confirmBaby": "Store the baby result ({w} kg) for {n}? Only the weight is stored.",
+    "babySave": "Store",
+    "babyDismiss": "Do not store",
+    "growthHint": "Percentiles and curves need the growth data {ref} (separate file, licence {licence}).",
+    "growthEnable": "Enable",
+    "legendTitle": "Scale symbols",
+    "legend": [
+      [
+        "hist",
+        "Look at an earlier reading (1 = newest), tap again = back"
+      ],
+      [
+        "ohm",
+        "Impedance in ohms, beside it kg with the change since the reading before"
+      ],
+      [
+        "arrow",
+        "▲ up, ▼ down, ▬ same (since the reading before)"
+      ],
+      [
+        "bmi",
+        "BMI, for children the percentile (P)"
+      ],
+      [
+        "fat",
+        "Body fat in percent, only with impedance"
+      ],
+      [
+        "shoe",
+        "Measured without impedance (socks, shoes, dry feet): weight only"
+      ],
+      [
+        "sync",
+        "Replaces the reading from a moment ago"
+      ],
+      [
+        "lift",
+        "Athlete curve"
+      ],
+      [
+        "m1",
+        "Body-fat method 1: standard"
+      ],
+      [
+        "m2",
+        "Body-fat method 2: alternative"
+      ],
+      [
+        "nosave",
+        "Not stored (guest, baby/pet)"
+      ],
+      [
+        "auto",
+        "Automatic key: the scale recognises the person by weight"
+      ],
+      [
+        "guest",
+        "Guest key (one tap switches, not stored)"
+      ],
+      [
+        "baby",
+        "Baby/pet key (alone first, then holding the baby/pet)"
+      ],
+      [
+        "dim",
+        "Dim: off. A dim frame around the Automatic symbol shows in rest that Automatic is preselected."
+      ],
+      [
+        "lit",
+        "Lit: active now. The person key or the symbol in the display waits for a reading or belongs to the result shown (person, guest, baby/pet). The mode keys stay dark."
+      ],
+      [
+        "frame",
+        "Time left (default) on a person key: the frame starts thick and thins out until it is as thin as on any key. For Guest and baby/pet the frame of the symbol in the display blinks instead, in the last minute (Automatic never)."
+      ],
+      [
+        "ring",
+        "Optional (key_timer: ring): the outline of a person key runs back like a hand."
+      ],
+      [
+        "fade",
+        "Optional (key_timer: fade): the key darkens. Blinking in the last minute is an option of its own (key_blink)."
+      ],
+      [
+        "blink",
+        "Blinking: reading open. The suggested people and the guest key (with its symbol) blink in turn."
+      ]
+    ],
+    "guestNote": "not stored",
+    "sincePrevious": "Change since the reading before",
+    "holdSteps": [
+      "1/2 alone",
+      "2/2 with baby/pet"
+    ],
+    "legendInv": {
+      "hist": "Look at an earlier reading (1 = newest): the number called up has a light background. Tap again to go back.",
+      "dim": "Set, resting: the mode's symbol (e.g. Automatic at rest) has a dim background, otherwise it only shows the dimmed symbol.",
+      "lit": "Active: the symbol in the display has a light background while the mode waits for a reading or belongs to the result. The person key lights up. The mode keys stay dark."
+    },
+    "howInv": {
+      "timer": "A person's time shows on their lit key (frame, ring or darkening, `key_timer`). Guest and baby/pet show their time on their symbol in the display: in the last minute the filled field pulses slowly (bright and dim). Automatic never blinks. There are four times: preselect (`choice_minutes`), then Automatic active (the same time), the result (`display_hold`) and the history (`history_hold`)."
+    },
+    "carriedFrom": "As of {when} (last reading with this value)",
+    "holdSame": "Both readings almost equal: was the baby/pet on the scale? Nothing to store.",
+    "replaced": "replaces the reading from a moment ago",
+    "whoWasIt": "Who was it? Tap a key",
+    "hold": "Baby/pet",
+    "latest": "Latest",
+    "days": "{n} days",
+    "years": "{n} years",
+    "noChart": "No history yet.",
+    "filterClothed": {
+      "any": "Clothes: any",
+      "yes": "Only weighed with clothes",
+      "no": "Only weighed without clothes"
+    },
+    "filterImpedance": {
+      "any": "Impedance: any",
+      "with": "Only readings with impedance",
+      "without": "Only readings without impedance"
+    },
+    "filterHint": "With a filter only the stored single entries count, from {date}.",
+    "filterNone": "With a filter only stored single entries count; there are none yet.",
+    "filterEmpty": "With this filter there are no entries with these values. Body values exist only for readings with impedance.",
+    "clothedOn": "Weighed with clothes (tap: without)",
+    "clothedOff": "Weighed without clothes (tap: with clothes)",
+    "periods": {
+      "month": "30 days",
+      "year": "1 year",
+      "all": "All"
+    },
+    "chartViews": {
+      "fat": "Weight + fat",
+      "composition": "Composition",
+      "percentile": "Weight + percentile",
+      "height": "Height",
+      "bmi": "BMI"
+    },
+    "comp": {
+      "ffm": "Fat-free",
+      "tissue": "Tissue",
+      "substances": "Substances",
+      "fat": "Fat",
+      "subcut": "Subcutaneous fat",
+      "restFat": "Remaining fat (incl. visceral)",
+      "muscle": "Muscle and organs",
+      "bone": "Bone",
+      "water": "Water",
+      "protein": "Protein",
+      "rest": "Remainder",
+      "visceral": "Visceral fat",
+      "total": "Weight",
+      "pct": "Weight + fat in percent",
+      "kg": "Composition in kg"
+    },
+    "chartLabels": {
+      "weight": "Weight",
+      "body_fat_percentage": "Fat",
+      "fat_mass": "Fat mass",
+      "fat_free_mass": "Fat-free mass",
+      "bmi_percentile": "BMI percentile",
+      "height": "Height",
+      "height_percentile": "Height percentile",
+      "body_mass_index": "BMI"
+    },
+    "heightOld": "height entered {n} months ago",
+    "heightAsk": "How tall is {name} now?",
+    "heightEdit": "Change height",
+    "heightAdd": "Enter height",
+    "change": "Change",
+    "confirmDelHeight": "Delete the height from {h} for {p}?",
+    "private": "Only visible to this person and admins",
+    "newMeasurement": "new measurement",
+    "heightNow": "update now",
+    "heightRange": "Please enter a height between 40 and 250 cm.",
+    "save": "Save",
+    "grid": "Grid",
+    "bandsFor": {
+      "male": "boys",
+      "female": "girls"
+    },
+    "sexes": {
+      "male": "male",
+      "female": "female"
+    },
+    "curvesToggle": "Curves on/off",
+    "zonesValue": "WHO · normal 18.5–25",
+    "zoneShort": [
+      "under",
+      "normal",
+      "over",
+      "obese"
+    ],
+    "measurements": "Measurements",
+    "allGood": "{n} values in range",
+    "noMeasurements": "No measurements yet.",
+    "date": "Date",
+    "more": "Show more",
+    "less": "Show less",
+    "move": "Move",
+    "remove": "Delete",
+    "cancel": "Cancel",
+    "impedance": "with impedance",
+    "noImpedance": "weight only",
+    "suggested": "matches the weight",
+    "confirmAssign": "Assign the measurement from {m} to {p}?",
+    "confirmMove": "Move the measurement from {m} from {f} to {t}? Body values are recalculated for {t}.",
+    "confirmRemove": "Permanently delete the measurement from {m} of {p}?",
+    "pickTarget": "Move the measurement from {m} to:",
+    "notFound": "No scale found. Does the integration offer the scale interface (S), and is Home Assistant restarted?",
+    "failed": "That did not work:",
+    "cols": {
+      "weight": "Weight",
+      "body_mass_index": "BMI",
+      "body_fat_percentage": "Fat",
+      "muscle_mass": "Muscle",
+      "body_water_percentage": "Water",
+      "skeletal_muscle_percentage": "Skel. m.",
+      "bone_mass": "Bone",
+      "protein_percentage": "Protein",
+      "basal_metabolic_rate": "BMR",
+      "fat_free_mass": "Fat-free",
+      "visceral_fat": "Visceral",
+      "subcutaneous_fat_percentage": "Subcut.",
+      "metabolic_age": "Met. age",
+      "impedance": "Impedance"
+    }
+  },
+  "info": {
+    "title": "Understanding the values",
+    "bands": {
+      "low": "low",
+      "ok": "normal",
+      "high": "elevated",
+      "veryHigh": "high"
+    },
+    "bmiBands": [
+      "Under",
+      "Normal",
+      "Over",
+      "Obese"
+    ],
+    "howTitle": "How the scale calculates",
+    "how": [
+      "The scale measures only two things: <b>weight</b> and <b>impedance</b>, i.e. how well a weak current flows through the body from foot to foot.",
+      "A formula estimates <b>body fat</b> from these. All other values (water, muscle, protein, bone, metabolic rate) are then derived from body fat and weight with fixed factors. They therefore always move together and are not separate measurements.",
+      "The <b>trend</b> over weeks is more reliable than a single reading."
+    ],
+    "algoTitle": "Calculation methods",
+    "algos": {
+      "standard": [
+        "Standard",
+        "Mostly BMI, age and sex. Impedance shifts the result by only about 1 percentage point. Very stable, but barely reacts to training."
+      ],
+      "alternative": [
+        "Alternative",
+        "First calculates fat-free mass from height, weight, age and impedance, the rest is fat. Impedance plays only a small part here too. Usually 4–6 percentage points above standard. Use whichever matches the manufacturer's app."
+      ],
+      "athlete": [
+        "Athlete",
+        "Flatter curve without impedance. For people with a lot of muscle whose high BMI does not come from fat. Gives clearly less fat throughout, often 5–8 percentage points."
+      ]
+    },
+    "yourValues": "With the latest reading this would give",
+    "active": "active",
+    "activeNote": "Framed: the method in use.",
+    "normal": "normal",
+    "athleteCol": "Athlete",
+    "setHint": "Change it in the scale integration's settings (Settings → Devices & services), at the user.",
+    "child": "Under 18 the adult formulas and ranges do not apply. For children and teenagers the BMI percentile for age and sex is what counts; it is shown with the BMI. The calculation is fixed to standard. Body fat and the derived values are only rough estimates.",
+    "avgForWeight": "Average at this weight about {v} kg",
+    "realAge": "Actual age: {n} years",
+    "ageBands": {
+      "ok": "younger",
+      "high": "older"
+    },
+    "visceralBands": [
+      "healthy",
+      "high",
+      "very high"
+    ],
+    "percentile": "BMI percentile {p} ({ref}): {c}. Of 100 children of the same age and sex, {p} have a lower BMI.{other}",
+    "categories": {
+      "thinness": "thinness",
+      "normal": "normal",
+      "overweight": "overweight",
+      "obesity": "obesity"
+    },
+    "kidBmi": {
+      "who": "Children and teenagers (WHO, 5–19 years): below percentile 2.3 thinness, up to 84 normal, up to 97.7 overweight, above that obesity.",
+      "kh": "Children and teenagers (Kromeyer-Hauschild, 0–18 years): below percentile 10 thinness, up to 90 normal, up to 97 overweight, above that obesity."
+    },
+    "kidRanges": {
+      "body_fat_percentage": "There are no reliable ranges from the scale for children. Only look at the trend.",
+      "body_water_percentage": "Children have a higher share of water than adults. The adult ranges do not apply."
+    },
+    "mifflin": "For comparison, Mifflin-St Jeor (without body fat): {v} kcal",
+    "heightBands": [
+      "short",
+      "normal",
+      "tall"
+    ],
+    "heightCuts": "Usual range: percentiles 3 to 97 (WHO: 2.3 to 97.7). Outside it, talk to a paediatrician if the height changes suddenly.",
+    "heightPct": "Height percentile {p} ({ref}): of 100 children of the same age and sex, {p} are shorter.",
+    "compTitle": "Composition",
+    "compSub": "Fat / fat-free",
+    "compIntro": "The same weight in two splits: by tissue and by substance. Each bar adds up to the whole weight; the fat is the same in both and split by depth (two shades of orange). Everything is derived from body fat and weight; these are not separate measurements.",
+    "compKid": "For children these are only rough estimates.",
+    "compInfo": {
+      "fat": "Share of body fat in weight, estimated from the impedance. Everything else is the fat-free mass.",
+      "muscle": "Weight minus fat minus bone. Includes organs and the water in muscle, not muscle alone.",
+      "bone": "Estimated from body fat and weight, not measured.",
+      "subcut": "Fat directly under the skin. The rest is remaining fat, which includes the visceral fat around the organs.",
+      "restFat": "Remaining fat, including the visceral fat around the organs.",
+      "visceral": "A level for the fat around the organs (up to 9 healthy), not a mass. It cannot be separated out of the total fat.",
+      "water": "Body water. Muscle holds a lot of water, fat little.",
+      "protein": "Protein, mostly in muscle.",
+      "rest": "Weight minus water, fat and protein, mostly minerals."
+    },
+    "metrics": {
+      "body_mass_index": [
+        "BMI",
+        "Weight divided by height squared. Simple and comparable, but does not distinguish muscle from fat.",
+        "Adults (WHO): below 18.5 underweight, 18.5–24.9 normal, 25–29.9 overweight, 30 and above obese."
+      ],
+      "body_fat_percentage": [
+        "Body fat",
+        "Share of fat in body weight. Calculated from BMI, age, sex and impedance (see calculation methods).",
+        "Healthy ranges rise slightly with age. During the day the value varies by several percentage points (drinking, eating, exercise)."
+      ],
+      "body_water_percentage": [
+        "Body water",
+        "Share of water in body weight. Muscle holds a lot of water, fat little. Derived from body fat here: less fat means more water.",
+        "Adults about 45–60 % (women) or 50–65 % (men)."
+      ],
+      "skeletal_muscle_percentage": [
+        "Skeletal muscle",
+        "Share of the muscles attached to the bones that you can move. Derived from body fat.",
+        "Rises when body fat falls. Reference ranges: manufacturer values (Omron) for home scales, by sex and age."
+      ],
+      "muscle_mass": [
+        "Muscle mass",
+        "Weight minus fat minus bone. Also includes organs and the water in muscle, so it is more than muscle alone.",
+        "Most useful as your own trend."
+      ],
+      "fat_free_mass": [
+        "Fat-free mass",
+        "Everything except fat: muscle, organs, bone, water.",
+        "If it stays the same while you lose weight, you are mainly losing fat."
+      ],
+      "bone_mass": [
+        "Bone mass",
+        "Estimated mineral weight of the bones. The scale cannot measure bone; the value follows from weight and body fat.",
+        "In reality it changes only very slowly. It says nothing about bone health."
+      ],
+      "protein_percentage": [
+        "Protein",
+        "Estimated share of protein in body weight, derived from body fat.",
+        "Rises when body fat falls. It has no meaning of its own."
+      ],
+      "basal_metabolic_rate": [
+        "Basal metabolic rate",
+        "Energy the body uses per day at complete rest. Estimated from weight and body fat here.",
+        "Daily needs are about 20–80 % higher, depending on activity."
+      ],
+      "visceral_fat": [
+        "Visceral fat",
+        "Estimate of the fat inside the abdomen around the organs, as a level from 1 to 30. Derived from BMI and body fat; the scale does not measure it directly.",
+        "Up to 9 healthy, 10–14 high, 15 and above very high. An estimate; differs from the manufacturer's app."
+      ],
+      "subcutaneous_fat_percentage": [
+        "Subcutaneous fat",
+        "Estimate of the fat directly under the skin, as a share of body weight: body fat without the part inside the abdomen.",
+        "Follows body fat. An estimate; differs from the manufacturer's app."
+      ],
+      "metabolic_age": [
+        "Metabolic age",
+        "Estimate of the age that weight, BMI and body fat match on average.",
+        "Below the actual age is good. An estimate; differs from the manufacturer's app."
+      ],
+      "impedance": [
+        "Impedance",
+        "The body's resistance to a weak current from foot to foot, in ohms. More water and muscle lower it.",
+        "Depends strongly on damp or dry feet, drinking and time of day. A few hundred ohms are typical."
+      ]
+    },
+    "tipsTitle": "Measuring comparably",
+    "tips": "Weigh at the same time every day, ideally in the morning after getting up and using the toilet, barefoot, with dry feet and before breakfast. After exercise, sauna or drinking a lot the body values differ.",
+    "disclaimer": "Not medical advice. Bathroom scales only estimate body composition. Please ask a doctor about your own values.",
+    "refNames": {
+      "kh": "Kromeyer-Hauschild, Germany",
+      "who": "WHO, international"
+    },
+    "refShort": {
+      "kh": "Kromeyer-Hauschild",
+      "who": "WHO"
+    },
+    "percentileOther": " By {name}: percentile {p}."
+  },
+  "editor": {
+    "groups": {
+      "basic": "General",
+      "look": "Appearance",
+      "sections": "Sections",
+      "times": "Times",
+      "timer": "Key behaviour",
+      "global": "For all cards (children, recognition)",
+      "scale": "Scale",
+      "view": "Appearance"
+    },
+    "labels": {
+      "title": "Title",
+      "person": "Only this person",
+      "rows": "Rows before “show more”",
+      "values_max_age_days": "Carry over values without impedance (days)",
+      "language": "Language",
+      "sort": "Order of people",
+      "skin": "Look of the scale",
+      "mode_field_width": "Width of the mode frame and field",
+      "invert_brightness": "Brightness of the active mode (inverted)",
+      "invert_modes": "Modes inverted (bottom of the display)",
+      "invert_history": "History number inverted (top of the display)",
+      "overview": "Overview instead of tabs",
+      "list": "Rows in the overview",
+      "hide_empty_pending": "Hide empty open measurements",
+      "pending": "Open measurements",
+      "next_user": "Show the scale",
+      "chart": "Graph",
+      "profile": "Profile line",
+      "info": "Values and explanations",
+      "grid": "Graph grid",
+      "curves": "Children's curves",
+      "display_hold": "Show result (minutes)",
+      "history_hold": "Show history (seconds)",
+      "choice_minutes": "Preselect duration (minutes)",
+      "refresh_seconds": "Redraw every (seconds)",
+      "key_timer": "Time left on the person key",
+      "key_blink": "Person key blinks in the last minute",
+      "blink_tolerance_kg": "Blink for an open reading within (kg)",
+      "baby_max_months": "Baby/pet up to age (months)",
+      "reference": "Reference for children",
+      "compare_references": "Compare both references", "growth_who": "Use WHO growth data", "growth_kh": "Use Kromeyer-Hauschild data",
+      "directory": "Directory entity"
+    },
+    "helpers": {
+      "title": "Without a title the card shows a scale symbol.",
+      "person": "Name or id of one person. Empty = everybody.",
+      "rows": "How many readings the table shows first.",
+      "values_max_age_days": "If the newest reading lacks a body value (no impedance), the tile shows the value of the last reading that has it if that is at most this old, dimmed with its time. 0 = off.",
+      "language": "Automatic: the language of your Home Assistant profile. Any other choice: always that language.",
+      "sort": "By age: oldest first, people without a birth date last. By name: alphabetical.",
+      "skin": "Device: black scale with a red display, like a real device. Theme: scale and all displays (the weight too) in your dashboard theme's primary colour, surface in theme colours.",
+      "mode_field_width": "Narrow: the frame or field sits tight around the symbol (default). Wide: as wide as the key below. Applies to the frame style and the inverted one alike, both have the same size.",
+      "invert_brightness": "Only for inverted modes: brightness of the active field in percent of the display colour (default 65). Lower = more subtle. The set, resting field and the pulse phase in the last minute are 40 % of it.",
+      "invert_modes": "Off (today): the symbol of the active mode lights up, the set mode has a frame, in the last minute the frame blinks. On: the symbol is dark on a filled field (active bright, set and resting dim), in the last minute the field pulses slowly. The legend adapts.",
+      "invert_history": "Off (today): the number 1–10 called up has a frame. On: the number is dark on a light field. It fades over time. The legend adapts.",
+      "overview": "One row per person with the latest weight instead of tabs and graph.",
+      "list": "In the overview: off = only the scale, the person keys lead to the views (links in YAML: `links`).",
+      "hide_empty_pending": "Hide the open-measurements section while nothing is open.",
+      "pending": "Section with open, not yet assigned readings.",
+      "next_user": "Off = the whole scale (display, mode keys, person keys) is hidden. Without it nothing can be preselected.",
+      "key_blink": "In addition to the chosen kind the key blinks in the last minute. Default off.",
+      "chart": "History graph under the table.",
+      "profile": "Line with age, height and fat method under the name.",
+      "info": "Value tiles with a rating and the collapsible “How the scale calculates” section.",
+      "grid": "Off = graph without grid and without the grid button.",
+      "curves": "Off = never draw the children's percentile curves.",
+      "display_hold": "How long a result stays in the display before it goes idle.",
+      "history_hold": "How long an older reading (1–10) stays. The choice is kept.",
+      "choice_minutes": "Duration of a preselect and of the Automatic phase after it. 0 = the integration's waiting time.",
+      "refresh_seconds": "0 = off. 10 is recommended when several views are open at once.",
+      "key_timer": "How the lit person key shows the time left, one kind excludes the others. Frame gets thinner: thick at first, like any key at the end. Outline runs back: an outline around the key shrinks like a hand. Key darkens: it gets darker until the end. None: nothing. Guest and baby/pet show their time on their symbol in the display (frame blinks in the last minute), Automatic never blinks.",
+      "blink_tolerance_kg": "For an open reading the suggestions and everybody whose last weight is at most this far off blink.",
+      "baby_max_months": "People younger than this are offered the baby/pet result to store.",
+      "reference": "WHO 2007: international reference, 5–19 years. Kromeyer-Hauschild: German reference, 0–18 years. It decides percentiles, rating and curves.",
+      "compare_references": "Show both references side by side (graph, BMI explanation).", "growth_who": "Loads the WHO 2007 table (de Onis et al., licence CC BY-NC-SA 3.0 IGO: attribution, non-commercial, share-alike) from the file next to the card. Needed for children's percentiles and curves. Loaded only when enabled here.", "growth_kh": "Loads the Kromeyer-Hauschild 2001 table (licence GPL-3.0-or-later, as in the R package childsds) from the file next to the card. Needed for percentiles and curves after the German reference. Loaded only when enabled here.",
+      "directory": "Only needed if the card does not find the directory itself."
+    },
+    "options": {
+      "language": {
+        "auto": "Automatic"
+      },
+      "sort": {
+        "age": "By age",
+        "name": "By name"
+      },
+      "skin": {
+        "device": "Device (black/red)",
+        "theme": "Theme"
+      },
+      "mode_field_width": {
+        "narrow": "Narrow (around the symbol)",
+        "wide": "Wide (key width)"
+      },
+      "key_timer": {
+        "frame": "Frame gets thinner",
+        "ring": "Outline runs back",
+        "fade": "Key darkens",
+        "none": "None",
+        "custom": "Custom (YAML)"
+      },
+      "reference": {
+        "who": "WHO 2007",
+        "kh": "Kromeyer-Hauschild"
+      }
+    }
+  }
+}

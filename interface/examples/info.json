@@ -1,0 +1,5 @@
+{
+  "history_interface": 1,
+  "capabilities": "entries,series,write",
+  "name": "Fake history"
+}

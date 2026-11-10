@@ -1,0 +1,16 @@
+{
+  "points": [
+    {
+      "person_id": "jane",
+      "metric": "weight",
+      "at": "2026-11-03T00:00:00Z",
+      "value": 70.8,
+      "n": 1
+    }
+  ],
+  "method_changes": [],
+  "series_info": {
+    "source": "entries",
+    "entries_from": "2026-11-01T06:30:00Z"
+  }
+}
