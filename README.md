@@ -4,6 +4,15 @@ A Home Assistant dashboard card (and dashboard strategy) for smart body scales u
 
 **Status:** version `0.1.0`, first public version. It has been used with one scale integration (`renpho_fitness_scale_ble`, family build) and is not yet tested on other setups. Feedback and issues are welcome.
 
+## Screenshots
+
+All screenshots use made-up people and generated values.
+
+![The scale as a device with people, next to the weight, the composition chart and the value tiles](images/01-scale-and-people.png)
+![Composition chart and value tiles](images/02-chart-and-value-tiles.png)
+![Measurement table: move a weigh-in to another person, delete it, mark it as weighed with clothes](images/03-measurement-table.png)
+![A child: height history with percentile per entry](images/04-child-height-and-percentiles.png)
+
 ## Requirements
 
 The card needs a scale integration that offers the two interfaces S (scale) and H (history), see the specification below. Today the only one is a multi-user family fork of [renpho_fitness_scale_ble](https://github.com/ronnnnnnnnnnnnn/renpho-escs20m) (fork not yet published). A proposal to bring the interfaces into the original integration is open as [issue #17](https://github.com/ronnnnnnnnnnnnn/renpho-escs20m/issues/17). Until it is accepted, the card works only with that fork. **It does not work with the unmodified original integration.**
